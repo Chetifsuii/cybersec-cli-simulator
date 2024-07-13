@@ -1,0 +1,65 @@
+A web-based Linux CLI simulator with integrated cyber security tools for educational purposes.
+
+🚀 Features
+Simulated Linux command-line interface
+Basic file system operations (ls, cd, mkdir, touch, rm, etc.)
+Simulated cyber security tools (nmap, sqlmap, wireshark, metasploit, john, aircrack-ng)
+Command history and tab completion
+Simple Nano text editor simulation
+🛠️ Installation
+Clone the repository:
+git clone https://github.com/user/cybersec-cli-simulator.git
+Navigate to the project directory:
+cd cybersec-cli-simulator
+Open index.html in your web browser.
+🖱️ Usage
+Simply type commands in the input field and press Enter to execute. Use the up and down arrow keys to navigate through command history, and Tab for auto-completion.
+
+Available commands:
+
+pwd, ls, cd, mkdir, echo, cat, rm, mv, cp, touch, nano, whoami, date, ps, df, free, help, clear
+
+Cyber Security Tools: nmap, sqlmap, wireshark, metasploit, john, aircrack-ng
+🧠 How It Works
+The Cyber Security CLI Simulator is built using HTML, CSS, and JavaScript. Here's a brief overview of its components:
+
+1. File System Simulation
+A virtual file system is implemented using a nested JavaScript object structure:
+
+let fileSystem = {
+  '/': {
+    type: 'directory',
+    contents: {
+      'home': {
+        type: 'directory',
+        contents: {
+          // ...
+        }
+      },
+      // ...
+    }
+  }
+};
+2. Command Implementation
+Each command is implemented as a function within a commands object:
+
+const commands = {
+  pwd: () => addOutputLine(currentDir),
+  ls: (args) => {
+    // Implementation of ls command
+  },
+  // Other commands...
+};
+3. Cyber Security Tools Simulation
+Cyber security tools are simulated by adding specialized commands that mimic their behavior:
+
+nmap: (args) => {
+  if (!args[0]) {
+    addOutputLine('nmap: missing target operand');
+  } else {
+    addOutputLine(`Starting Nmap scan on ${args[0]}...`);
+    setTimeout(() => {
+      // Simulated scan results
+    }, 2000);
+  }
+},
